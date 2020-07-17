@@ -37,5 +37,5 @@ instances:
 | `zabbix_user` | Username to use Zabbix API. |
 | `zabbix_password` | Password of `zabbix_user`. |
 | `zabbix_api` | URL for the Zabbix API (e.g. `http://localhost/zabbix/api_jsonrpc.php`) |
-| `hosts` | List of hostnames for metrics to be collected. |
-| `metrics` | List of Items that collected by Zabbix. |
+| `hosts` | List of hostnames for metrics to be collected. If not specified, collect metrics from all hosts. |
+| `metrics` | List of Items that collected by Zabbix. If not specified, collect all Items. |
