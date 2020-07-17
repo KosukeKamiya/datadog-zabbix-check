@@ -1,7 +1,7 @@
 # datadog-zabbix-check
 
 ## Overview
-Custom check of Datadog agent to collect metrics from Zabbix. It access to Zabbix API and collect item history. Then report them to Datadog as custom metrics.
+Custom check of Datadog agent to collect metrics from Zabbix. It access to [Zabbix API](https://www.zabbix.com/documentation/current/manual/api) and collect item history. Then report them to Datadog as custom metrics.
 
 Operability confirmed at Zabbix 5.0.
 
