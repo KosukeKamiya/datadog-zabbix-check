@@ -13,7 +13,7 @@ class HelloCheck(AgentCheck):
     def request(self,zabbix_api,req_data):
         req_header = {
             'Content-Type': 'application/json-rpc',
-        }        
+        }
         req = urllib.request.Request(zabbix_api, data=req_data.encode(), method='POST', headers=req_header)
 
         try:
@@ -25,7 +25,7 @@ class HelloCheck(AgentCheck):
         except urllib.error.URLError as e:
             self.log.error('request error')
             return "Error"
-    
+
     def login(self,zabbix_user,zabbix_pass,zabbix_api):
         req_data = json.dumps({
             'jsonrpc': '2.0',
@@ -37,7 +37,7 @@ class HelloCheck(AgentCheck):
             'id': 1
             })
         response = self.request(zabbix_api,req_data)
-        
+
         token = response.get('result')
         return token
 
@@ -152,7 +152,7 @@ class HelloCheck(AgentCheck):
         result = response.get('result')
 
         return result
-        
+
 
     def check(self, instance):
         zabbix_user = instance.get('zabbix_user')
@@ -185,7 +185,7 @@ class HelloCheck(AgentCheck):
         else:
             zabbixitems = self.get_items(token,hostids,zabbix_api)
 
-        self.log.error(zabbixitems)
+        self.log.debug(zabbixitems)
 
 
         ## Get metrics value
@@ -203,4 +203,4 @@ class HelloCheck(AgentCheck):
 
         # Revoke token
         result = self.logout(token,zabbix_api)
-        self.log.info(result)
+        self.log.debug(result)
